@@ -7,9 +7,6 @@ function b = getBag(I, m)
     ni = im+md*n;
 %     imshow(uint8(ni));
     s = size(im);
-    figure;
-    subplot(1,2,1)
-    imshow(uint8(I));
     
     %seam carving removal
     si = s(2);
@@ -74,8 +71,7 @@ function b = getBag(I, m)
         si = si+1;
         cm(s(1), y) = ma;
     end
-    subplot(1,2,2)
-    imshow(uint8(I));
+ 
     
     b = I;
 end

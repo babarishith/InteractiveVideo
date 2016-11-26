@@ -1,6 +1,6 @@
 function m = getObj(im)
 %     im = imread('penc.jpg');
-    f = 16;
+    f = 18;
     I = im2bw(im);
     e = edge(I);
     s = strel('disk', f);
@@ -10,5 +10,5 @@ function m = getObj(im)
     nb = imclearborder(d, 4);
     m = uint8(repmat(nb, [1 1 3]));
     % I1 = rgb2gray(im);
-    imshow(im.*m);
+    %imshow(im.*m);
 end
