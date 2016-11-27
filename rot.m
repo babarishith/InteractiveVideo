@@ -10,5 +10,5 @@ function [ri,rm]=rot(img,m,oi,oj,ang,r)
             rm(x1,y1,:) = m(x,y,:);
         end
     end
-    imshow(ri);
+%     imshow(ri);
 end

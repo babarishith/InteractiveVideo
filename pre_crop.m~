@@ -2,8 +2,8 @@ function [cx,cy,r] = pre_crop(im)
     flag = 0;
     mini = 0;
     minj = 0;
-    maxi = size(im,2);
-    maxj = size(im,1);
+    maxi = 0;
+    ma
     for i = 1:size(im,2)
         if (sum(im(:,i)) ~= 0 ) & (flag == 0)
             mini = i;

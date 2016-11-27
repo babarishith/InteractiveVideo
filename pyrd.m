@@ -3,7 +3,7 @@ function [gp, lp] = pyrd(imgp, lev)
 % imgp = input('Enter path to image: ', 's');
 % lev = input('Enter the number of levels: ');
 % img = double(imread(imgp));
-img = imgp;
+img = double(imgp);
 % if islogical(img)
 %     img = mat2gray(img);
 % end
