@@ -1,15 +1,21 @@
-function [o,m,b,ci,cj,r] = main(im)
+function [o,m,b,ci,cj,r] = main(im1,im2)
 %Input video and initial processing
 % im = imread('penc.jpg');
-
+if im2 == 0
 %Detect Object and get mask
-m = getObj(im);
+    m = getObj(im1);
 
-%seperate object and background
-o = im.*m;
-b = getBag(im, m);
+    %seperate object and background
+    o = im1.*m;
+    b = getBag(im1, m);
 
-[ci,cj,r] = pre_crop(o);
+    [ci,cj,r] = pre_crop(o);
+else
+    [b,mask,m] = getBag2(im1,im2);
+    o = im2.*m;
+    [ci,cj,r] = pre_crop(o);
+%     [ci,cj,r1] = pre_crop(mask);
+end
 %get mouse input and angle
 % ang = 15;
 %transform object 

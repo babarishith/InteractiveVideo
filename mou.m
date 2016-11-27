@@ -53,8 +53,16 @@ function mou_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to mou (see VARARGIN)
 handles.flag = 0;
 handles.ang = 90;
-img = imread('penc.jpg');
-[handles.o,handles.m,handles.b, handles.oi,handles.oj,handles.r] = main(img);
+handles.fl = 2;
+if handles.fl == 1 
+    img = imread('penc.jpg');
+    [handles.o,handles.m,handles.b, handles.oi,handles.oj,handles.r] = main(img,0);
+end
+if handles.fl == 2
+    img1 = imread('tp1.jpg');
+    img = imread('tp2.jpg');
+    [handles.o,handles.m,handles.b, handles.oi,handles.oj,handles.r] = main(img1,img);
+end
 % [handles.ri,handles.rm] = rot(handles.o,handles.m,handles.ci,handles.cj,handles.ang,handles.r);
 % handles.fi = handles.ri+handles.b.*(1-handles.rm);
 figure(handles.back)
@@ -86,9 +94,9 @@ function back_WindowButtonMotionFcn(hObject, eventdata, handles)
 % hObject    handle to back (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if handles.flag < 0
-    return;
-end
+% if handles.flag < 0
+%     return;
+% end
 pos = get(hObject, 'currentpoint'); % get mouse location on figure
 x = pos(1); y = pos(2); % assign locations to x and y
 pos = get(gcf, 'Position');
@@ -110,7 +118,7 @@ function back_WindowButtonDownFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 handles.flag = 1;
 disp "start"
-[handles.ri,handles.rm] = rot(handles.o,handles.m,handles.oi,handles.oj,handles.ang,handles.r);
+[handles.ri,handles.rm] = rot(handles.o,handles.m,[handles.oi,handles.oj],handles.ang,handles.r);
 handles.fi = handles.ri+handles.b.*(1-handles.rm);
 figure(handles.back)
 imshow(handles.fi);
