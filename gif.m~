@@ -1,0 +1,8 @@
+img = imread('penc.jpg');
+[o,m,b, oi,oj,r] = main(img);
+for ang = 355:-5:10
+    [ri,rm] = rot(o,m,oi,oj,ang,r);
+    fi = ri+b.*(1-rm);
+    figure
+    imshow(fi);
+end
