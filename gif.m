@@ -6,7 +6,4 @@ for ang = 350:-5:315
     fi = ri+b.*(1-rm);
     %figure
     %imshow(fi);
-    imwrite(fi,['vid1/' num2str((355-ang)/5) '.jpg']);
-    
 end
-imwrite(fi,'f.jpg');

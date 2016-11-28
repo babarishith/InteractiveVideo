@@ -1,6 +1,6 @@
-function [bg,mask,m1] = getBag2(im1,im2)
-% im1 = imread('tpm1.jpg');
-% im2 = imread('tpm2.jpg');
+%function [bg,mask,m1] = getBag2(im1,im2)
+im1 = imread('tpm1.jpg');
+im2 = imread('tpm2.jpg');
 
 s1 = abs(im1-im2);
 s2 = abs(im2-im1);
@@ -35,15 +35,20 @@ d = imdilate(Sbo, se);
 
 m1 = uint8(repmat(d1,[1 1 3]));
 
-ser = strel('disk',10);
+ser = strel('disk',3);
 
 de1 = imerode(d1,ser);
 de2 = imerode(d2,ser);
 
 bg = zeros(size(im1));
+dm1 = zeros(size(im1));
+dm2 = zeros(size(im1));
+
 for i = 1:3
     b2 = uint8(1-de1).*im2(:,:,i);
     b1 = uint8(1-de2).*im1(:,:,i);
+    dm1(:,:,i) = b1;
+    dm2(:,:,i) = b2;
     bg(:,:,i) = max(b2,b1);
 end
 
@@ -53,4 +58,4 @@ mask = min(d1,d2);
 mask = uint8(repmat(mask,[1 1 3]));
 
 
-end
+%end

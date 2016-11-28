@@ -1,6 +1,7 @@
 function [o,m,b,ci,cj,r] = main(im1,im2)
 %Input video and initial processing
-% im = imread('penc.jpg');
+im1 = imread('penc.jpg');
+im2 = 0;
 if im2 == 0
 %Detect Object and get mask
     m = getObj(im1);
@@ -16,12 +17,12 @@ else
     [ci,cj,r] = pre_crop(o);
 %     [ci,cj,r1] = pre_crop(mask);
 end
-%get mouse input and angle
+% %get mouse input and angle
 % ang = 15;
-%transform object 
-%Rotation
-%[ri,rm] = rotate(o,m,ang,ci,cj);
-% [ri,rm] = rot(o,m,ci,cj,ang,r);
+% %transform object 
+% %Rotation
+% %[ri,rm] = rotate(o,m,ang,ci,cj);
+% [ri,rm] = rot(o,m,[ci,cj],ang,r);
 % fi = ri+b.*(1-rm);
 % or = o+b.*(1-m);
 % figure;
