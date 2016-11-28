@@ -35,7 +35,7 @@ d = imdilate(Sbo, se);
 
 m1 = uint8(repmat(d1,[1 1 3]));
 
-ser = strel('disk',10);
+ser = strel('disk',9);
 
 de1 = imerode(d1,ser);
 de2 = imerode(d2,ser);
