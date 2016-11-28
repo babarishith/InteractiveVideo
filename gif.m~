@@ -1,10 +1,24 @@
 img1 = imread('tpm1.jpg');
 img2 = imread('tpm2.jpg');
 [o,m,b, oi,oj,r] = main(img1,img2);
-for ang = 350:-5:315
+i = 1;
+for ang = 355:-5:270
     [ri,rm] = rot(o,m,[oi,oj],ang,r);
     fi = ri+b.*(1-rm);
-    figure
-    imshow(fi);
-    imwrite(A,['vid1/' num2str(35)])
+    %figure
+    %imshow(fi);
+<<<<<<< HEAD
+=======
+    imwrite(fi,['gif2/' num2str(i) '.jpg']);
+    i = i + 1;
+end
+
+for ang = 265:5:350
+    [ri,rm] = rot(o,m,[oi,oj],ang,r);
+    fi = ri+b.*(1-rm);
+    %figure
+    %imshow(fi);
+    imwrite(fi,['gif2/' num2str(i) '.jpg']);
+    i = i + 1;
+>>>>>>> 43f67916233b8bb30130bf81a68a62cd6f9329ec
 end
