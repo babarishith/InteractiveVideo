@@ -53,7 +53,7 @@ function mou_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to mou (see VARARGIN)
 handles.flag = 0;
 handles.ang = 90;
-handles.fl = 2;
+handles.fl = 1;
 if handles.fl == 1 
     img = imread('penc.jpg');
     [handles.o,handles.m,handles.b, handles.oi,handles.oj,handles.r] = main(img,0);

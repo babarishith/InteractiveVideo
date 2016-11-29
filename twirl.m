@@ -1,7 +1,7 @@
 function [x1,y1] = twirl(x, y,c,ang,rmax)
-    coi = 277;
-    coj = 621;
-    rmax = 230; 
+    coi = 211;
+    coj = 374;
+    rmax = 180; 
     dx = double(x - coi);
     dy = double(y - coj);
     r = sqrt(dx^2 + dy^2);

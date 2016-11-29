@@ -29,8 +29,8 @@ function [cx,cy,r] = pre_crop(im)
     cro = imcrop(im,R);
     cy = uint16((mini+maxi)/2);
     cx = uint16((minj+maxj)/2);
-    l = uint8((maxi-mini)/2);
-    b = uint8((maxj-minj)/2);
-    r = max(l,b)+1;
+    l = uint8((maxi-mini)/2)
+    b = uint8((maxj-minj)/2)
+    r = sqrt(double((l*l)+(b*b)));
     %imshow(cro);
 end
